@@ -5,10 +5,11 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float speed;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>(); 
         
     }
 
@@ -26,5 +27,10 @@ public class playerController : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
 
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("eesh");
     }
 }
